@@ -1,9 +1,9 @@
 
-<?php 
+<?php
 include('head.php');
 if(!isset($_GET['olt'])){
 	$_GET['olt'] = 'GPON01-D5-GSK-3(172.27.140.25)[OLT 1, ZTE ZXA10 C220 Physical Device]';
-} 
+}
 ?>
 
 <!-- Main -->
@@ -85,7 +85,7 @@ if(!isset($_GET['olt'])){
 		</div>
 	</div>
 	<!-- modaladddata -->
-	
+
 	<!-- modal edit -->
 	<div class="modal fade" id="modalEditDataOLT" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
@@ -196,7 +196,7 @@ if(!isset($_GET['olt'])){
 		</div>
 	</div>
 	<!-- modal delete -->
-	
+
 	<div id="alert_message" style="padding-right: 250px; padding-top: 30px; "></div>
 	<section class="wrapper style5">
 		<div class="inner">
@@ -211,23 +211,23 @@ if(!isset($_GET['olt'])){
 			</style>
 
 			<img src="images/teknis1.jpg" type="image/jpg" width="260" height="150" style="margin-top: 0px;"><img src="images/teknis.jpg" type="image/jpg" width="260" height="150" style="margin-top: -20px;"><img src="images/teknis3.jpg" type="image/jpg" width="260" height="150" style="margin-top: -20px;">
-			
-			<hr />	
+
+			<hr />
 
 			<h4 style="color: #b7181a; margin-bottom: 0px; margin-top: -40px; text-shadow: 0px 1px #212529;">DIGITALISASI ODC & FTM</h4>
-			<p>Berikut layout ODC & FTM dalam bentuk list data tabel. Anda dapat melihat, menambah, mengubah, dan menghapus data layout sesuai dengan apa yang telah anda kerjakan. </br> <strong>Pastikan data selalu Update!</strong></p>	
+			<p>Berikut layout ODC & FTM dalam bentuk list data tabel. Anda dapat melihat, menambah, mengubah, dan menghapus data layout sesuai dengan apa yang telah anda kerjakan. </br> <strong>Pastikan data selalu Update!</strong></p>
 
 
 			<img src="images/ftm24.jpg" type="image/jpg" width="260" height="150" style="margin-top: -20px; width: 28%;"><img src="images/ftms24.jpg" type="image/jpg" width="260" height="150" style="margin-top: -20px; width: 28%;">
-			
+
 			<div align="right" style="margin-right: 0px; margin-bottom: 50px; margin-top: -20px;" >
 				<button class="primary" data-toggle='modal' data-target='#modalAddDataOLT'>Add Data</button>
-			</div>	
+			</div>
 
 			<!--Tabel-->
 			<h3 style="color: #b7181a; margin-bottom: 10px; margin-top: -40px; text-shadow: 0px 1px #212529; ">LAYOUT : OLT</h3>
 
-			<table style="margin-bottom: 10px;">		
+			<table style="margin-bottom: 10px;">
 				<td align="center" style="padding-top: 5px; padding-bottom: 5px;">
 					<h4 style=" background-color: #de3031; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0px; font-size: 13px;"><?php echo $_GET['olt']; ?></h4></td>
 				</table>
@@ -249,7 +249,7 @@ if(!isset($_GET['olt'])){
 						</thead>
 					</thead>
 					<tbody>
-						<?php 
+						<?php
 						$acekolt = 1;
 						for($i = 1; $i < 5; $i++){
 							echo '<tr style="text-align: center;">';
@@ -280,7 +280,7 @@ if(!isset($_GET['olt'])){
 	    		processData: false,
 	    		success: function(data)
 	    		{
-		            $('#buttonSaveDataOLT').attr('disabled',false); //set button enable 
+		            $('#buttonSaveDataOLT').attr('disabled',false); //set button enable
 		            $('#modalAddDataOLT').modal('hide');
 		            $('#alert_message').html('<div class="alert alert-success">'+data+'</div>');
 		            $("#formAddDataOLT")[0].reset();
@@ -291,7 +291,7 @@ if(!isset($_GET['olt'])){
 				{
 					console.log(jqXHR, textStatus, errorThrown);
 		            $('#buttonSaveDataOLT').text('eror'); //change button text
-		            $('#buttonSaveDataOLT').attr('disabled',false); //set button enable 
+		            $('#buttonSaveDataOLT').attr('disabled',false); //set button enable
 		        }
 		    });
 	    });
@@ -324,7 +324,7 @@ if(!isset($_GET['olt'])){
     		processData: false,
     		success: function(data)
     		{
-	            $('#buttonSaveEditDataOLT').attr('disabled',false); //set button enable 
+	            $('#buttonSaveEditDataOLT').attr('disabled',false); //set button enable
 				$('#buttonSaveEditDataOLT').text('Update'); //change button text
 				$('#modalEditDataOLT').modal('hide');
 				window.location.replace('./layoutolt1.php?olt=<?php echo $_GET['olt']; ?>');
@@ -336,7 +336,7 @@ if(!isset($_GET['olt'])){
 			{
 				console.log(jqXHR, textStatus, errorThrown);
 	            $('#buttonSaveEditDataOLT').text('error'); //change button text
-	            $('#buttonSaveEditDataOLT').attr('disabled',false); //set button enable 
+	            $('#buttonSaveEditDataOLT').attr('disabled',false); //set button enable
 	        }
 	    });
     }
@@ -353,7 +353,7 @@ if(!isset($_GET['olt'])){
     		processData: false,
     		success: function(data)
     		{
-	            $('#buttonsaveDeleteDataOLT').attr('disabled',false); //set button enable 
+	            $('#buttonsaveDeleteDataOLT').attr('disabled',false); //set button enable
 				$('#buttonsaveDeleteDataOLT').text('Delete'); //change button text
 				$('#modalDeleteDataOLT').modal('hide');
 				window.location.replace('./layoutolt1.php?olt=<?php echo $_GET['olt']; ?>');
@@ -364,7 +364,7 @@ if(!isset($_GET['olt'])){
 			{
 				console.log(jqXHR, textStatus, errorThrown);
 	            $('#buttonsaveDeleteDataOLT').text('eror'); //change button text
-	            $('#buttonsaveDeleteDataOLT').attr('disabled',false); //set button enable 
+	            $('#buttonsaveDeleteDataOLT').attr('disabled',false); //set button enable
 	        }
 	    });
     }
