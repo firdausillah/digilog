@@ -133,8 +133,7 @@ for ($i=1; $i < 13; $i++) {
 			<button style='background-color: ".$result_out->$j."; padding-top: 10px; font-size: 11px; height: 40px; width: 75px;' type=button class=btn  data-toggle=modal data-target=#modalEditData>
 			  ".$result_out->$k."
 			</button>";
-		}
-	include('modalpanelinout1.php');?>
+		}?>
 
 <?php
 }

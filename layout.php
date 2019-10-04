@@ -79,6 +79,7 @@ if(!isset($_GET["alpro"])){
 
 						</tbody>
 					</table>
+					<?php include('modalpanelinout1.php'); ?>
 				</div>
 			</div>
 		</div>
