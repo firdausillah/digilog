@@ -188,4 +188,115 @@
     $("#select-panel-out-splitter").attr('disabled','disabled');
     $("#input-panel-out-odp").removeAttr('disabled');
   }
+
+
+
+    $( document ).ready(function() {
+      $('#formAddData').submit(function(event) {
+        event.preventDefault();
+      $('#buttonSaveData').text('creating...'); //change button text
+        $('#buttonSaveData').attr('disabled',true); //set button disable
+        var formData = new FormData($('#formAddData')[0]);
+        $.ajax({
+          url : "insertftm.php",
+          type: "POST",
+          data: formData,
+          contentType: false,
+          processData: false,
+          success: function(data)
+          {
+                $('#buttonSaveData').attr('disabled',false); //set button enable
+                $('#modalAddData').modal('hide');
+                $('#alert_message').html('<div class="alert alert-success">'+data+'</div>');
+                $("#formAddData")[0].reset();
+          $('#buttonSaveData').text('Submit'); //change button text
+          window.location.replace('./layoutftm.php?alpro=<?php echo $_GET['alpro'];?>&tb_ftm=<?php echo $_GET['tb_ftm'];?>&tb_panel=<?php echo $_GET['tb_panel'];?>');
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+          console.log(jqXHR, textStatus, errorThrown);
+                $('#buttonSaveData').text('eror'); //change button text
+                $('#buttonSaveData').attr('disabled',false); //set button enable
+            }
+        });
+      });
+    });
+
+
+    function editData(id_port,id_panel)
+    {
+      $.get('readsigledata.php', {id_port : id_port, id_panel : id_panel, tabel: "tb_feeder"} , function(res){
+  			var res = JSON.parse(res);
+  			$("#modalEditData").modal("show");
+  			$("#select-id-alpro").val(res.id_alpro);
+  			$("#input-id-record").val(res.id);
+  			$("#input-id-panel").val(res.id_panel);
+  			$("#input-id-port").val(res.id_port);
+  			$("#input-panel-in").val(res.panel_in);
+  			$("#select-panel-out-splitter").val(res.panel_out_splitter);
+  			$("#input-panel-out-odp").val(res.panel_out_odp);
+  			$("#select-distrib").val(res.distrib);
+  		});
+    }
+
+    function saveEditData(){
+    $('#buttonSaveEditData').text('editting...'); //change button text
+      $('#buttonSaveEditData').attr('disabled',true); //set button disable
+      var formData = new FormData($('#formEditData')[0]);
+      $.ajax({
+        url : "submiteditdata.php",
+        type: "POST",
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function(data)
+        {
+              $('#buttonSaveEditData').attr('disabled',false); //set button enable
+        $('#buttonSaveEditData').text('Update'); //change button text
+        $('#modalEditData').modal('hide');
+        window.location.replace('./layoutftm.php');
+
+        $('#alert_message').html('<div class="alert alert-success">'+data+'</div>');
+        $("#formEditData")[0].reset();
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+        console.log(jqXHR, textStatus, errorThrown);
+              $('#buttonSaveEditData').text('error'); //change button text
+              $('#buttonSaveEditData').attr('disabled',false); //set button enable
+          }
+      });
+    }
+
+    function saveDeleteData(){
+    $('#buttonSaveDeleteData').text('deleting...'); //change button text
+      $('#buttonSaveDeleteData').attr('disabled',true); //set button disable
+      var formData = new FormData($('#formDeleteData')[0]);
+      $.ajax({
+        url : "submitdeletedata.php",
+        type: "POST",
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function(data)
+        {
+              $('#buttonSaveDeleteData').attr('disabled',false); //set button enable
+        $('#buttonSaveDeleteData').text('Delete'); //change button text
+        $('#modalDeleteData').modal('hide');
+        window.location.replace('./layoutftm.php?alpro=<?php echo $_GET['alpro'];?>&tb_ftm=<?php echo $_GET['tb_ftm'];?>&tb_panel=<?php echo $_GET['tb_panel'];?>');
+
+        $('#alert_message').html('<div class="alert alert-success">'+data+'</div>');
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+        console.log(jqXHR, textStatus, errorThrown);
+              $('#buttonSaveDeleteData').text('eror'); //change button text
+              $('#buttonSaveDeleteData').attr('disabled',false); //set button enable
+          }
+      });
+    }
+    $('#modalDeleteData').on('shown.bs.modal', function () {
+      $('#modalEditData').modal('hide')
+    })
+
 </script>

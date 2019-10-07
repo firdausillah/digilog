@@ -23,6 +23,8 @@
  		<script src="assets/js/dataTables.bootstrap.min.js"></script>
  		<script src="assets/js/bootstrap-datepicker.js"></script>
  		<script src="https://cdnjs.cloudflare.com/ajax/libs/multi-select/0.9.12/js/jquery.multi-select.js"></script>
+    <!-- myjs -->
+     		<script src="assets/js/bootstrap-datepicker.js"></script>
 <!-- Dropdown -->
     <script>
     function dropdown1(){

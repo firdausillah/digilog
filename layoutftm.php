@@ -1,6 +1,6 @@
 
-<?php 
-include('head.php'); 
+<?php
+include('head.php');
 if(!isset($_GET['alpro'])){
 	$_GET['alpro'] = 'FTM-GSK-OA-01';
 }
@@ -109,7 +109,7 @@ if (!isset($_GET['tb_panel'])){
 		</div>
 	</div>
 	<!-- modaladddata -->
-	
+
 	<!-- modal edit -->
 	<div class="modal fade" id="modalEditDataFTM" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
@@ -142,7 +142,7 @@ if (!isset($_GET['tb_panel'])){
 							<div class="form-group" style="margin-left: -25px; padding-top: 20px; margin-bottom: 0px;">
 								<label for="" style=" margin-bottom: -1px; font-size: 14px;" class="text-dark">Lokasi FTM</label>
 								<input type="text" style="font-size: 14px; background-color: #e6d6d4;" class="form-control" name="nm_ftm" id="input-edit-nm_ftm" aria-describedby="textHelp" readonly="">
-								
+
 							</div>
 
 							<!--<div class="form-group" style="margin-left: 0px; padding-top: 20px; margin-bottom: 0px;">-->
@@ -150,7 +150,7 @@ if (!isset($_GET['tb_panel'])){
 							<!--	<select type="number" style="font-size: 14px; background-color: #e6d6d4;" class="form-control" name="id_kolom" id="input-edit-id-kolom" aria-describedby="textHelp" readonly="">-->
 
 							<!--</div>-->
-							
+
 							<div class="form-group" style="margin-left: 0px; padding-top: 20px; margin-bottom: 0px;">
 								<label for="" style=" margin-bottom: -1px; font-size: 14px;" class="text-dark">Type FTM</label>
 								<input type="number" style="font-size: 14px; background-color: #e6d6d4;" class="form-control" name="id_kolom" id="input-edit-id-kolom" aria-describedby="textHelp" readonly="">
@@ -235,7 +235,7 @@ if (!isset($_GET['tb_panel'])){
 		</div>
 	</div>
 	<!-- modal delete -->
-	
+
 	<div id="alert_message" style="padding-right: 250px; padding-top: 30px; "></div>
 	<section class="wrapper style5">
 		<div class="inner">
@@ -250,11 +250,11 @@ if (!isset($_GET['tb_panel'])){
 			</style>
 
 			<img src="images/teknis1.jpg" type="image/jpg" width="260" height="150" style="margin-top: 0px;"><img src="images/teknis.jpg" type="image/jpg" width="260" height="150" style="margin-top: -20px;"><img src="images/teknis3.jpg" type="image/jpg" width="260" height="150" style="margin-top: -20px;">
-			
-			<hr />	
+
+			<hr />
 
 			<h4 style="color: #b7181a; margin-bottom: 0px; margin-top: -40px; text-shadow: 0px 1px #212529;">DIGITALISASI ODC & FTM</h4>
-			<p style="margin-bottom: 0px;">Berikut layout ODC & FTM dalam bentuk list data tabel. Anda dapat melihat, menambah, mengubah, dan menghapus data layout sesuai dengan apa yang telah anda kerjakan. </br> <strong>Pastikan data selalu Update!</strong></p>	
+			<p style="margin-bottom: 0px;">Berikut layout ODC & FTM dalam bentuk list data tabel. Anda dapat melihat, menambah, mengubah, dan menghapus data layout sesuai dengan apa yang telah anda kerjakan. </br> <strong>Pastikan data selalu Update!</strong></p>
 
 			<!--<img src="images/ftm24.jpg" type="image/jpg" width="260" height="150" style="margin-top: 0px; width: 28%;"><img src="images/ftms24.jpg" type="image/jpg" width="260" height="150" style="margin-top: -20px; width: 28%;">	-->
 
@@ -267,9 +267,9 @@ if (!isset($_GET['tb_panel'])){
 					<option style="background-color: white; color: #ed4933;" value="layoutftm.php?alpro=<?php echo $_GET['alpro'];?>&tb_ftm=<?php echo $_GET['tb_ftm'];?>&tb_panel=PANEL1">PANEL1</option>
 					<option style="background-color: white; color: #ed4933;" value="layoutftm.php?alpro=<?php echo $_GET['alpro'];?>&tb_ftm=<?php echo $_GET['tb_ftm'];?>&tb_panel=PANEL2">PANEL2</option>
 					<option style="background-color: white; color: #ed4933;" value="layoutftm.php?alpro=<?php echo $_GET['alpro'];?>
-					&tb_ftm=<?php 
+					&tb_ftm=<?php
 
-					if($_GET['alpro'] == 'FTM-GSK-OA-02'){ 
+					if($_GET['alpro'] == 'FTM-GSK-OA-02'){
 						echo '2';
 						}else{
 							echo '1';
@@ -277,42 +277,42 @@ if (!isset($_GET['tb_panel'])){
 
 						?>&tb_panel=PANEL3">PANEL3</option>
 						<option style="background-color: white; color: #ed4933;" value="layoutftm.php?alpro=<?php echo $_GET['alpro'];?>
-						&tb_ftm=<?php 
+						&tb_ftm=<?php
 
-						if($_GET['alpro'] == 'FTM-GSK-OA-02'){ 
+						if($_GET['alpro'] == 'FTM-GSK-OA-02'){
 							echo '2';
 							}else{
-								echo '1';	
+								echo '1';
 							}
 
 							?>&tb_panel=PANEL4">PANEL4</option>
 							<option style="background-color: white; color: #ed4933;" value="layoutftm.php?alpro=<?php echo $_GET['alpro'];?>
-							&tb_ftm=<?php 
+							&tb_ftm=<?php
 
-							if($_GET['alpro'] == 'FTM-GSK-OA-02'){ 
+							if($_GET['alpro'] == 'FTM-GSK-OA-02'){
 								echo '2';
 								}else{
-									echo '1';	
+									echo '1';
 								}
 
 								?>&tb_panel=PANEL5">PANEL5</option>
 								<option style="background-color: white; color: #ed4933;" value="layoutftm.php?alpro=<?php echo $_GET['alpro'];?>
-								&tb_ftm=<?php 
+								&tb_ftm=<?php
 
-								if($_GET['alpro'] == 'FTM-GSK-OA-02'){ 
+								if($_GET['alpro'] == 'FTM-GSK-OA-02'){
 									echo '2';
 									}else{
-										echo '1';	
+										echo '1';
 									}
 
 									?>&tb_panel=PANEL6">PANEL6</option>
 									<option style="background-color: white; color: #ed4933;" value="layoutftm.php?alpro=<?php echo $_GET['alpro'];?>
-									&tb_ftm=<?php 
+									&tb_ftm=<?php
 
-									if($_GET['alpro'] == 'FTM-GSK-OA-02'){ 
+									if($_GET['alpro'] == 'FTM-GSK-OA-02'){
 										echo '2';
 										}else{
-											echo '1';	
+											echo '1';
 										}
 
 										?>&tb_panel=PANEL7">PANEL7</option>
@@ -329,29 +329,29 @@ if (!isset($_GET['tb_panel'])){
 					<table style="font-size: 13px; margin-left: -18px; margin-right: -500px; background-color: white; overflow-y: scroll;" class="table table-bordered table-striped" id="tabel-halaman-layout">
 						<thead>
 							<?php
-							$slot = $_GET['tb_panel']; 
+							$slot = $_GET['tb_panel'];
 							if ($_GET['tb_ftm'] == 1){
 								echo  "<th id='color3' colspan='24'><h3 style='color: white; margin-top: 10px; margin-left: 50px;'>".$slot."</h3></th>";
 
 							}else if ($_GET['tb_ftm'] == 2){
 								echo  "<th id='color3' colspan='12'><h3 style='color: white; margin-top: 10px; margin-left: 50px;'>".$slot."</h3></th>";
-								
+
 							}
 
 							?>
 						</thead>
-						
+
 						<tbody>
 							<?php
 							$acekftm = 1;
 							$c = 0;
-							
+
 							if ($_GET['tb_ftm'] == 1) {
 								$c=7;
 
 							}else if ($_GET['tb_ftm'] == 2) {
 								$c=13;
-							}	
+							}
 
 							for($i = 1; $i < $c; $i++){
 								echo '<tr style="text-align: center;">';
@@ -384,7 +384,7 @@ if (!isset($_GET['tb_panel'])){
 	    		processData: false,
 	    		success: function(data)
 	    		{
-		            $('#buttonSaveDataFTM').attr('disabled',false); //set button enable 
+		            $('#buttonSaveDataFTM').attr('disabled',false); //set button enable
 		            $('#modalAddData').modal('hide');
 		            $('#alert_message').html('<div class="alert alert-success">'+data+'</div>');
 		            $("#formAddDataFTM")[0].reset();
@@ -395,7 +395,7 @@ if (!isset($_GET['tb_panel'])){
 				{
 					console.log(jqXHR, textStatus, errorThrown);
 		            $('#buttonSaveDataFTM').text('eror'); //change button text
-		            $('#buttonSaveDataFTM').attr('disabled',false); //set button enable 
+		            $('#buttonSaveDataFTM').attr('disabled',false); //set button enable
 		        }
 		    });
 	    });
@@ -431,7 +431,7 @@ if (!isset($_GET['tb_panel'])){
     		processData: false,
     		success: function(data)
     		{
-	            $('#buttonSaveEditDataFTM').attr('disabled',false); //set button enable 
+	            $('#buttonSaveEditDataFTM').attr('disabled',false); //set button enable
 				$('#buttonSaveEditDataFTM').text('Update'); //change button text
 				$('#modalEditDataFTM').modal('hide');
 				window.location.replace('./layoutftm.php');
@@ -443,7 +443,7 @@ if (!isset($_GET['tb_panel'])){
 			{
 				console.log(jqXHR, textStatus, errorThrown);
 	            $('#buttonSaveEditDataFTM').text('error'); //change button text
-	            $('#buttonSaveEditDataFTM').attr('disabled',false); //set button enable 
+	            $('#buttonSaveEditDataFTM').attr('disabled',false); //set button enable
 	        }
 	    });
     }
@@ -460,7 +460,7 @@ if (!isset($_GET['tb_panel'])){
     		processData: false,
     		success: function(data)
     		{
-	            $('#buttonSaveDeleteDataFTM').attr('disabled',false); //set button enable 
+	            $('#buttonSaveDeleteDataFTM').attr('disabled',false); //set button enable
 				$('#buttonSaveDeleteDataFTM').text('Delete'); //change button text
 				$('#modalDeleteDataFTM').modal('hide');
 				window.location.replace('./layoutftm.php?alpro=<?php echo $_GET['alpro'];?>&tb_ftm=<?php echo $_GET['tb_ftm'];?>&tb_panel=<?php echo $_GET['tb_panel'];?>');
@@ -471,7 +471,7 @@ if (!isset($_GET['tb_panel'])){
 			{
 				console.log(jqXHR, textStatus, errorThrown);
 	            $('#buttonSaveDeleteDataFTM').text('eror'); //change button text
-	            $('#buttonSaveDeleteDataFTM').attr('disabled',false); //set button enable 
+	            $('#buttonSaveDeleteDataFTM').attr('disabled',false); //set button enable
 	        }
 	    });
     }

@@ -118,19 +118,19 @@ for ($i=1; $i < 13; $i++) {
 		<div><h4 style='color: #334456;'>".$row[$k]."</h4></div>";
 		if (strpos($result_out->$k,'SPL')!== false or empty($result_out->$k)) {
 			echo "
-			<button style='background-color: ".$result_out->$j."; padding-top: 10px; font-size: 11px; height: 40px; width: 75px;'  type=button class=btn  data-toggle=modal data-target=#modalEditData>
+			<button style='background-color: ".$result_out->$j."; padding-top: 10px; font-size: 11px; height: 40px; width: 75px;'  type=button class=btn  onClick=editData(".$a,$i.") data-toggle=modal data-target=#modalEditData>
 			  ".$result_out->$k."
 			</button>";
 
 		}elseif(strpos($result_out->$k,'STUB')!== false or empty($result_out->$k)){
 			echo "
-			<button style='background-color: ".$result_out->$j."; padding-top: 10px; font-size: 11px; height: 40px; width: 75px;' type=button class=btn  data-toggle=modal data-target=#modalEditData>
+			<button style='background-color: ".$result_out->$j."; padding-top: 10px; font-size: 11px; height: 40px; width: 75px;' type=button class=btn onClick=editData(".$a,$i.")  data-toggle=modal data-target=#modalEditData>
 			  ".$result_out->$k."
 			</button>";
 
 		}else{
 			echo "
-			<button style='background-color: ".$result_out->$j."; padding-top: 10px; font-size: 11px; height: 40px; width: 75px;' type=button class=btn  data-toggle=modal data-target=#modalEditData>
+			<button style='background-color: ".$result_out->$j."; padding-top: 10px; font-size: 11px; height: 40px; width: 75px;' type=button class=btn onClick=editData(".$a,$i.")  data-toggle=modal data-target=#modalEditData>
 			  ".$result_out->$k."
 			</button>";
 		}?>
