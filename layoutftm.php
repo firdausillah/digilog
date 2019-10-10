@@ -14,12 +14,8 @@ if (!isset($_GET['tb_panel'])){
 
 <!-- Main -->
 <article id="main">
-	<header>
-		<h2>LAYOUT</h2>
-		<p>Layout Digital Data <br /> ODC & FTM</p>
-	</header>
 	<!-- modaladddata -->
-	<div class="modal fade" id="modalAddDataFTM" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div style="margin-top: 25px;" class="modal fade" id="modalAddDataFTM" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -111,7 +107,7 @@ if (!isset($_GET['tb_panel'])){
 	<!-- modaladddata -->
 
 	<!-- modal edit -->
-	<div class="modal fade" id="modalEditDataFTM" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div style="margin-top: 25px;" class="modal fade" id="modalEditDataFTM" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -146,60 +142,100 @@ if (!isset($_GET['tb_panel'])){
 							</div>
 
 							<!--<div class="form-group" style="margin-left: 0px; padding-top: 20px; margin-bottom: 0px;">-->
-							<!--	<label for="" style=" margin-bottom: -1px; font-size: 14px;" class="text-dark">Type FTM</label>-->
-							<!--	<select type="number" style="font-size: 14px; background-color: #e6d6d4;" class="form-control" name="id_kolom" id="input-edit-id-kolom" aria-describedby="textHelp" readonly="">-->
+								<!--	<label for="" style=" margin-bottom: -1px; font-size: 14px;" class="text-dark">Type FTM</label>-->
+								<!--	<select type="number" style="font-size: 14px; background-color: #e6d6d4;" class="form-control" name="id_kolom" id="input-edit-id-kolom" aria-describedby="textHelp" readonly="">-->
 
-							<!--</div>-->
+									<!--</div>-->
 
-							<div class="form-group" style="margin-left: 0px; padding-top: 20px; margin-bottom: 0px;">
-								<label for="" style=" margin-bottom: -1px; font-size: 14px;" class="text-dark">Type FTM</label>
-								<input type="number" style="font-size: 14px; background-color: #e6d6d4;" class="form-control" name="id_kolom" id="input-edit-id-kolom" aria-describedby="textHelp" readonly="">
+									<div class="form-group" style="margin-left: 0px; padding-top: 20px; margin-bottom: 0px;">
+										<label for="" style=" margin-bottom: -1px; font-size: 14px;" class="text-dark">Type FTM</label>
+										<input type="number" style="font-size: 14px; background-color: #e6d6d4;" class="form-control" name="id_kolom" id="input-edit-id-kolom" aria-describedby="textHelp" readonly="">
+									</div>
+
+									<div class="form-group" style="padding-top: 20px; margin-bottom: 0px;">
+										<label for="" style="margin-bottom: -1px; font-size: 14px;" class="text-dark">Panel</label>
+										<input style=" font-size: 14px;" style="color: black;" type="number" class="form-control" name="id_panel" id="input-edit-id-panel" aria-describedby="textHelp" placeholder="" readonly="">
+									</div>
+
+									<div class="form-group" style="padding-top: 10px; margin-bottom: 0px;">
+										<label style=" margin-bottom: -1px; font-size: 14px;" for="" class="text-dark">Port in Slot</label>
+										<input style=" font-size: 14px;" style="color: black;" type="text" class="form-control" name="port" id="input-edit-port" aria-describedby="textHelp" placeholder="Enter text" readonly="">
+									</div>
+
+									<div class="form-group" style="padding-top: 10px;">
+										<label style="margin-bottom: -1px; font-size: 14px;" for="" class="text-dark">ODC</label>
+										<input style=" font-size: 14px;" type="text" class="form-control" name="odc" id="input-edit-odc" aria-describedby="textHelp" placeholder="Enter text" required="">
+									</div>
+
+									<div class="form-group" style="padding-top: 0px;">
+										<label style="margin-bottom: -1px; font-size: 14px;" for="" class="text-dark">Core</label>
+										<input style=" font-size: 14px;" type="text" class="form-control" name="core" id="input-edit-core" aria-describedby="textHelp" placeholder="Enter text" required="">
+									</div>
+									<div class="form-group" style="padding-top: 0px;">
+										<label for="" style=" font-size: 13px; margin-bottom: -1px;" class="text-dark">FTM</label>
+										<input style=" font-size: 14px;" type="text" class="form-control" name="ftm" id="input-edit-ftm" aria-describedby="textHelp" placeholder="Enter text">
+									</div>
+
+								</div>
 							</div>
 
-							<div class="form-group" style="padding-top: 20px; margin-bottom: 0px;">
-								<label for="" style="margin-bottom: -1px; font-size: 14px;" class="text-dark">Panel</label>
-								<input style=" font-size: 14px;" style="color: black;" type="number" class="form-control" name="id_panel" id="input-edit-id-panel" aria-describedby="textHelp" placeholder="" readonly="">
+							<div class="modal-footer">
+								<!-- <a class="btn btn-secondary" data-dismiss="modal">Close</a> -->
+								<button type="button" class="primary" data-toggle='modal' data-target='#modalDeleteDataFTM'>Delete</button>
+								<!-- id="buttondeleteEditDataFTM" onclick="saveDeleteDataFTM()" -->
+								<button class="primary" id="buttonSaveEditDataFTM" onclick="saveEditDataFTM()">Update</button>
 							</div>
-
-							<div class="form-group" style="padding-top: 10px; margin-bottom: 0px;">
-								<label style=" margin-bottom: -1px; font-size: 14px;" for="" class="text-dark">Port in Slot</label>
-								<input style=" font-size: 14px;" style="color: black;" type="text" class="form-control" name="port" id="input-edit-port" aria-describedby="textHelp" placeholder="Enter text" readonly="">
-							</div>
-
-							<div class="form-group" style="padding-top: 10px;">
-								<label style="margin-bottom: -1px; font-size: 14px;" for="" class="text-dark">ODC</label>
-								<input style=" font-size: 14px;" type="text" class="form-control" name="odc" id="input-edit-odc" aria-describedby="textHelp" placeholder="Enter text" required="">
-							</div>
-
-							<div class="form-group" style="padding-top: 0px;">
-								<label style="margin-bottom: -1px; font-size: 14px;" for="" class="text-dark">Core</label>
-								<input style=" font-size: 14px;" type="text" class="form-control" name="core" id="input-edit-core" aria-describedby="textHelp" placeholder="Enter text" required="">
-							</div>
-							<div class="form-group" style="padding-top: 0px;">
-								<label for="" style=" font-size: 13px; margin-bottom: -1px;" class="text-dark">FTM</label>
-								<input style=" font-size: 14px;" type="text" class="form-control" name="ftm" id="input-edit-ftm" aria-describedby="textHelp" placeholder="Enter text">
-							</div>
-
-						</div>
+						</form>
 					</div>
-
-					<div class="modal-footer">
-						<!-- <a class="btn btn-secondary" data-dismiss="modal">Close</a> -->
-						<button type="button" class="primary" data-toggle='modal' data-target='#modalDeleteDataFTM'>Delete</button>
-						<!-- id="buttondeleteEditDataFTM" onclick="saveDeleteDataFTM()" -->
-						<button class="primary" id="buttonSaveEditDataFTM" onclick="saveEditDataFTM()">Update</button>
-					</div>
-				</form>
+				</div>
 			</div>
-		</div>
-	</div>
-	<!-- modal edit -->
+			<!-- modal edit -->
 
-	<!-- modal delete -->
-	<div class="modal fade" id="modalDeleteDataFTM" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
+			<!-- modal delete -->
+			<div style="margin-top: 25px;" class="modal fade" id="modalDeleteDataFTM" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<meta name="viewport" content="width=device-width, initial-scale=1.0">
+							<style>
+								img {
+									width: 33%;
+									height: auto;
+									margin-bottom: -40px;
+								}
+							</style>
+
+							<img src="images/logotelkom.png" type="image/jpg" width="210" height="100" style="margin-top: -20px; margin-bottom: -5px;">
+
+							<h5 style="margin-top: 80px; margin-bottom: -5px;" class="modal-title text-dark " id="exampleModalLabel">Delete Data FTM</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<form method="POST" id="formDeleteDataFTM">
+							<div class="modal-body text-dark">
+								<div class="row gtr-uniform" >
+									<div class="form-group">
+										<label for="" class="text-dark">Apakah anda yakin akan menghapus data record ?</label>
+										<input style=" color: red; width: 30%;" type="number" class="form-control" name="id_record" id="input-delete-id-record" aria-describedby="textHelp" placeholder="" readonly=""></input>
+										<input style=" background-color: white; margin-top: -40px; margin-left: 140px; color: white; width: 30%;" type="text" class="form-control" name="tabel" readonly="" value="tb_ftm"></input>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<!-- <a class="btn btn-secondary" data-dismiss="modal">Close</a> -->
+								<button type="button" class="primary" id="buttonSaveDeleteDataFTM" onclick="saveDeleteDataFTM()">Delete</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<!-- modal delete -->
+
+			<div id="alert_message" style="padding-right: 250px; padding-top: 0px; "></div>
+			<section class="wrapper style5">
+				<div class="inner">
+					<h3>List Data Layout FTM</h3>
 					<meta name="viewport" content="width=device-width, initial-scale=1.0">
 					<style>
 						img {
@@ -209,83 +245,23 @@ if (!isset($_GET['tb_panel'])){
 						}
 					</style>
 
-					<img src="images/logotelkom.png" type="image/jpg" width="210" height="100" style="margin-top: -20px; margin-bottom: -5px;">
+					<img src="images/teknis1.jpg" type="image/jpg" width="260" height="150" style="margin-top: 0px;"><img src="images/teknis.jpg" type="image/jpg" width="260" height="150" style="margin-top: -20px;"><img src="images/teknis3.jpg" type="image/jpg" width="260" height="150" style="margin-top: -20px;">
 
-					<h5 style="margin-top: 80px; margin-bottom: -5px;" class="modal-title text-dark " id="exampleModalLabel">Delete Data FTM</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<form method="POST" id="formDeleteDataFTM">
-					<div class="modal-body text-dark">
-						<div class="row gtr-uniform" >
-							<div class="form-group">
-								<label for="" class="text-dark">Apakah anda yakin akan menghapus data record ?</label>
-								<input style=" color: red; width: 30%;" type="number" class="form-control" name="id_record" id="input-delete-id-record" aria-describedby="textHelp" placeholder="" readonly=""></input>
-								<input style=" background-color: white; margin-top: -40px; margin-left: 140px; color: white; width: 30%;" type="text" class="form-control" name="tabel" readonly="" value="tb_ftm"></input>
-							</div>
-						</div>
-					</div>
-					<div class="modal-footer">
-						<!-- <a class="btn btn-secondary" data-dismiss="modal">Close</a> -->
-						<button type="button" class="primary" id="buttonSaveDeleteDataFTM" onclick="saveDeleteDataFTM()">Delete</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-	<!-- modal delete -->
+					<hr />
 
-	<div id="alert_message" style="padding-right: 250px; padding-top: 30px; "></div>
-	<section class="wrapper style5">
-		<div class="inner">
-			<h3 style="margin-top: -20px; margin-bottom: 0px;">List Data Layout FTM</h3>
-			<meta name="viewport" content="width=device-width, initial-scale=1.0">
-			<style>
-				img {
-					width: 33%;
-					height: auto;
-					margin-bottom: -40px;
-				}
-			</style>
+					<h4 style="color: #b7181a; margin-bottom: 0px; margin-top: -40px; text-shadow: 0px 1px #212529;">DIGITALISASI ODC & FTM</h4>
+					<p style="margin-bottom: 0px;">Berikut layout ODC & FTM dalam bentuk list data tabel. Anda dapat melihat, menambah, mengubah, dan menghapus data layout sesuai dengan apa yang telah anda kerjakan. </br> <strong>Pastikan data selalu Update!</strong></p>
 
-			<img src="images/teknis1.jpg" type="image/jpg" width="260" height="150" style="margin-top: 0px;"><img src="images/teknis.jpg" type="image/jpg" width="260" height="150" style="margin-top: -20px;"><img src="images/teknis3.jpg" type="image/jpg" width="260" height="150" style="margin-top: -20px;">
+					<!--<img src="images/ftm24.jpg" type="image/jpg" width="260" height="150" style="margin-top: 0px; width: 28%;"><img src="images/ftms24.jpg" type="image/jpg" width="260" height="150" style="margin-top: -20px; width: 28%;">	-->
 
-			<hr />
+					<!--Tabel-->
+					<h3 style="color: #b7181a; margin-bottom: 10px; margin-top: 40px; text-shadow: 0px 1px #212529; ">LAYOUT : <?php echo $_GET['alpro']; ?> </h3>
 
-			<h4 style="color: #b7181a; margin-bottom: 0px; margin-top: -40px; text-shadow: 0px 1px #212529;">DIGITALISASI ODC & FTM</h4>
-			<p style="margin-bottom: 0px;">Berikut layout ODC & FTM dalam bentuk list data tabel. Anda dapat melihat, menambah, mengubah, dan menghapus data layout sesuai dengan apa yang telah anda kerjakan. </br> <strong>Pastikan data selalu Update!</strong></p>
-
-			<!--<img src="images/ftm24.jpg" type="image/jpg" width="260" height="150" style="margin-top: 0px; width: 28%;"><img src="images/ftms24.jpg" type="image/jpg" width="260" height="150" style="margin-top: -20px; width: 28%;">	-->
-
-			<!--Tabel-->
-			<h3 style="color: #b7181a; margin-bottom: 10px; margin-top: 40px; text-shadow: 0px 1px #212529; ">LAYOUT : <?php echo $_GET['alpro']; ?> </h3>
-
-			<div class="col col-24">
-				<select style="background-color: #ed4933; margin-left: -10px; margin-bottom: 10px; margin-top: 10px; color: white; width: 200px; overflow: auto;" onchange="window.location.href=this.value" type="button" class="primary">
-					<option style="background-color: white; color: #ed4933;" value="#" readonly="">Select Panel</option>
-					<option style="background-color: white; color: #ed4933;" value="layoutftm.php?alpro=<?php echo $_GET['alpro'];?>&tb_ftm=<?php echo $_GET['tb_ftm'];?>&tb_panel=PANEL1">PANEL1</option>
-					<option style="background-color: white; color: #ed4933;" value="layoutftm.php?alpro=<?php echo $_GET['alpro'];?>&tb_ftm=<?php echo $_GET['tb_ftm'];?>&tb_panel=PANEL2">PANEL2</option>
-					<option style="background-color: white; color: #ed4933;" value="layoutftm.php?alpro=<?php echo $_GET['alpro'];?>
-					&tb_ftm=<?php
-
-					if($_GET['alpro'] == 'FTM-GSK-OA-02'){
-						echo '2';
-						}else{
-							echo '1';
-						}
-
-						?>&tb_panel=PANEL3">PANEL3</option>
-						<option style="background-color: white; color: #ed4933;" value="layoutftm.php?alpro=<?php echo $_GET['alpro'];?>
-						&tb_ftm=<?php
-
-						if($_GET['alpro'] == 'FTM-GSK-OA-02'){
-							echo '2';
-							}else{
-								echo '1';
-							}
-
-							?>&tb_panel=PANEL4">PANEL4</option>
+					<div class="col col-24">
+						<select style="background-color: #ed4933; margin-left: -10px; margin-bottom: 10px; margin-top: 10px; color: white; width: 200px; overflow: auto;" onchange="window.location.href=this.value" type="button" class="primary">
+							<option style="background-color: white; color: #ed4933;" value="#" readonly="">Select Panel</option>
+							<option style="background-color: white; color: #ed4933;" value="layoutftm.php?alpro=<?php echo $_GET['alpro'];?>&tb_ftm=<?php echo $_GET['tb_ftm'];?>&tb_panel=PANEL1">PANEL1</option>
+							<option style="background-color: white; color: #ed4933;" value="layoutftm.php?alpro=<?php echo $_GET['alpro'];?>&tb_ftm=<?php echo $_GET['tb_ftm'];?>&tb_panel=PANEL2">PANEL2</option>
 							<option style="background-color: white; color: #ed4933;" value="layoutftm.php?alpro=<?php echo $_GET['alpro'];?>
 							&tb_ftm=<?php
 
@@ -295,7 +271,7 @@ if (!isset($_GET['tb_panel'])){
 									echo '1';
 								}
 
-								?>&tb_panel=PANEL5">PANEL5</option>
+								?>&tb_panel=PANEL3">PANEL3</option>
 								<option style="background-color: white; color: #ed4933;" value="layoutftm.php?alpro=<?php echo $_GET['alpro'];?>
 								&tb_ftm=<?php
 
@@ -305,7 +281,7 @@ if (!isset($_GET['tb_panel'])){
 										echo '1';
 									}
 
-									?>&tb_panel=PANEL6">PANEL6</option>
+									?>&tb_panel=PANEL4">PANEL4</option>
 									<option style="background-color: white; color: #ed4933;" value="layoutftm.php?alpro=<?php echo $_GET['alpro'];?>
 									&tb_ftm=<?php
 
@@ -315,12 +291,32 @@ if (!isset($_GET['tb_panel'])){
 											echo '1';
 										}
 
-										?>&tb_panel=PANEL7">PANEL7</option>
-									</select>
-									<!--<button style="margin-left: -10px; margin-bottom: 10px;" class="primary" data-toggle='modal' data-target='#modalAddDataFTM'>Add Data</button>-->
-								</div>
+										?>&tb_panel=PANEL5">PANEL5</option>
+										<option style="background-color: white; color: #ed4933;" value="layoutftm.php?alpro=<?php echo $_GET['alpro'];?>
+										&tb_ftm=<?php
 
-								<table style="margin-bottom: 10px;">
+										if($_GET['alpro'] == 'FTM-GSK-OA-02'){
+											echo '2';
+											}else{
+												echo '1';
+											}
+
+											?>&tb_panel=PANEL6">PANEL6</option>
+											<option style="background-color: white; color: #ed4933;" value="layoutftm.php?alpro=<?php echo $_GET['alpro'];?>
+											&tb_ftm=<?php
+
+											if($_GET['alpro'] == 'FTM-GSK-OA-02'){
+												echo '2';
+												}else{
+													echo '1';
+												}
+
+												?>&tb_panel=PANEL7">PANEL7</option>
+											</select>
+											<!--<button style="margin-left: -10px; margin-bottom: 10px;" class="primary" data-toggle='modal' data-target='#modalAddDataFTM'>Add Data</button>-->
+										</div>
+
+										<table style="margin-bottom: 10px;">
 				<!-- <td align="center" style="padding-top: 5px; padding-bottom: 5px;">
 					<h4 style="margin-bottom: 0px;"><?php echo $_GET['tb_panel']; ?> </h4></td> -->
 				</table>
@@ -368,6 +364,7 @@ if (!isset($_GET['tb_panel'])){
 			</div>
 		</section>
 	</article>
+	
 	<script type="text/javascript">
 
 		$( document ).ready(function() {

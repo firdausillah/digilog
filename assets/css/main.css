@@ -3532,7 +3532,7 @@
 			}
 
 			#header.alt {
-				background: transparent;
+				background-color: #00000020;
 			}
 
 			#header.alt h1 {

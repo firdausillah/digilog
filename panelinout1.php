@@ -97,7 +97,7 @@ $result_out = $conn->query($sql_out);
 
 if(mysqli_num_rows($result_in)==0 && mysqli_num_rows($result_out)==0){
 	for ($nn=1; $nn < 13; $nn++) {
-			echo "<td style='border-bottom: 20px solid white;'><div></div></td>" ;
+		echo "<td style='border-bottom: 20px solid white;'><div></div></td>" ;
 	}
 }
 
@@ -110,33 +110,22 @@ $result_out  = mysqli_fetch_object($result_out);
 // echo "</pre>";
 
 foreach ($result_in as $row) {
-for ($i=1; $i < 13; $i++) {
+	for ($i=1; $i < 13; $i++) {
 	//PORT
-	$j="cport".$i;
-	$k="port".$i;
-		echo "<td style='background-color: ".$row[$j]."; border-bottom: 20px solid white; padding-bottom: 0px; padding-left: 0px; padding-right: 0px;  line-height: 1.5;'>
+		$j="cport".$i;
+		$k="port".$i;
+		echo "<td style='background-color: ".$row[$j]."; border-bottom: 20px solid white; padding-bottom: 0px; padding-left: 0px; padding-right: 0px;  line-height: 1.5;' data-toggle=modal data-target=#modalEditData>
 		<div><h4 style='color: #334456;'>".$row[$k]."</h4></div>";
 		if (strpos($result_out->$k,'SPL')!== false or empty($result_out->$k)) {
-			echo "
-			<button style='background-color: ".$result_out->$j."; padding-top: 10px; font-size: 11px; height: 40px; width: 75px;'  type=button class=btn  onClick=editData(".$a,$i.") data-toggle=modal data-target=#modalEditData>
-			  ".$result_out->$k."
-			</button>";
+			echo "<div style='background-color: ".$result_out->$j."; padding-top: 10px; height: 40px; width: 75px;'>".$result_out->$k."</div></td>";
 
 		}elseif(strpos($result_out->$k,'STUB')!== false or empty($result_out->$k)){
-			echo "
-			<button style='background-color: ".$result_out->$j."; padding-top: 10px; font-size: 11px; height: 40px; width: 75px;' type=button class=btn onClick=editData(".$a,$i.")  data-toggle=modal data-target=#modalEditData>
-			  ".$result_out->$k."
-			</button>";
+			echo "<div style='background-color: ".$result_out->$j."; padding-top: 10px; height: 40px; width: 75px;'>".$result_out->$k."</div></td>";
 
 		}else{
-			echo "
-			<button style='background-color: ".$result_out->$j."; padding-top: 10px; font-size: 11px; height: 40px; width: 75px;' type=button class=btn onClick=editData(".$a,$i.")  data-toggle=modal data-target=#modalEditData>
-			  ".$result_out->$k."
-			</button>";
-		}?>
-
-<?php
-}
+			echo "<div style='background-color: #780094; color: white;	 padding-top: 10px; height: 40px; width: 75px;'>".$result_out->$k."</div></td>";
+		}
+	}
 }
 $conn->close();
 ?>

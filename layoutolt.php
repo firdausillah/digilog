@@ -8,12 +8,9 @@ if(!isset($_GET['olt'])){
 
 <!-- Main -->
 <article id="main">
-	<header>
-		<h2>LAYOUT</h2>
-		<p>Layout Digital Data <br /> ODC & FTM</p>
-	</header>
+
 	<!-- modaladddata -->
-	<div class="modal fade" id="modalAddDataOLT" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div style="margin-top: 25px;" class="modal fade" id="modalAddDataOLT" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -87,7 +84,7 @@ if(!isset($_GET['olt'])){
 	<!-- modaladddata -->
 	
 	<!-- modal edit -->
-	<div class="modal fade" id="modalEditDataOLT" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div style="margin-top: 25px;" class="modal fade" id="modalEditDataOLT" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -157,7 +154,7 @@ if(!isset($_GET['olt'])){
 	<!-- modal edit -->
 
 	<!-- modal delete -->
-	<div class="modal fade" id="modalDeleteDataOLT" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div style="margin-top: 25px;" class="modal fade" id="modalDeleteDataOLT" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -197,10 +194,10 @@ if(!isset($_GET['olt'])){
 	</div>
 	<!-- modal delete -->
 	
-	<div id="alert_message" style="padding-right: 250px; padding-top: 30px; "></div>
+	<div id="alert_message" style="padding-right: 250px; padding-top: 0px; "></div>
 	<section class="wrapper style5">
 		<div class="inner">
-			<h3 style="margin-top: -20px; margin-bottom: 0px;">List Data Layout OLT</h3>
+			<h3>List Data Layout OLT</h3>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			<style>
 				img {

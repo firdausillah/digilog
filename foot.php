@@ -23,15 +23,7 @@
  		<script src="assets/js/dataTables.bootstrap.min.js"></script>
  		<script src="assets/js/bootstrap-datepicker.js"></script>
  		<script src="https://cdnjs.cloudflare.com/ajax/libs/multi-select/0.9.12/js/jquery.multi-select.js"></script>
-    <!-- myjs -->
-     		<script src="assets/js/bootstrap-datepicker.js"></script>
-<!-- Dropdown -->
-    <script>
-    function dropdown1(){
-      return confirm('Apakah anda yakin ingin menghapus data ini ?');
-    }
-    </script>
-<!-- end dropdown -->
+ 		
  		<script type="text/javascript">
  			(function($){
  				var nextId=0;
@@ -353,110 +345,10 @@
 
  		</script>
 
-
- 		<script type="text/javascript" language="javascript" >
- 			function fetch_data()
- 			{
- 				var dataTable = $('#tabel-panel-digilog').DataTable({
- 					ajax : {
- 						url:"fetch.php?alpro=<?php echo $_GET['alpro'] ?>",
- 						type:"POST"
-
- 					},
- 					columns :
- 					[
- 					{ data: 'id_panel'},
- 					{ data: 'id_port'},
- 					{ data: 'panel_in'},
- 					{ data: null, render : function(data, type, row){
- 						if (data.panel_out_splitter !== null) {
- 							return data.panel_out_splitter
- 						}else{
- 							return data.panel_out_odp
- 						}
- 					}},
- 					{ data: 'distrib'},
- 					{ data: null, render : function(data, type, row){
- 						if (data.id_alpro == 1) {
- 							return "ODC-GSK-FAB"
-
- 						}else if (data.id_alpro == 2) {
- 							return "ODC-GSK-FAK"
-
- 						}else if (data.id_alpro == 3) {
- 							return "ODC-GSK-FB"
-
- 						}else if (data.id_alpro == 4) {
- 							return "ODC-GSK-FG"
-
- 						}else if (data.id_alpro == 5) {
- 							return "ODC-GSK-FM"
-
- 						}else if (data.id_alpro == 6) {
- 							return "FTM-GSK-01"
-
- 						}else {
- 							return 0
- 						}
-
- 					}},
- 					{ data: null, render : function(data,type,row){
- 						return "<button class='primary' onClick='editData("+data.id+")'>Edit</button>" + "<button class='danger' onClick='deleteData("+data.id+")'>Delete</button>"
- 					}}
- 					],
- 					fixedHeader: true,
- 					stateSave: true,
- 					aLengthMenu: [[12, -1], [12, "All"]],
- 					pagingType: 'simple_numbers',
- 					ordering: true,
- 					autoWidth: false,
- 					oLanguage: {
- 						oPaginate: {
- 							sNext: '<i class="fa fa-chevron-right"></i>',
- 							sPrevious: 'PANEL <i class="fa fa-chevron-left"></i>'
- 						}
- 					}
- 				});
- 			}
-
-
-
- 			$(document).ready(function(){
- 				fetch_data();
-				// $(document).on('blur', '.update', function(){
-				// 	var id = $(this).data("id");
-				// 	var column_name = $(this).data("column");
-				// 	var value = $(this).text();
-				// 	update_data(id, column_name, value);
-				// });
-
-				$(document).on('click', '.delete', function(){
-					var id = $(this).attr("id");
-					if(confirm("Are you sure you want to deleted this data?"))
-					{
-						$.ajax({
-							url:"delete.php",
-							method:"POST",
-							data:{id:id},
-							success:function(data){
-								$('#alert_message').html('<div class="alert alert-success">'+data+'</div>');
-								$('#tabel-panel-digilog').DataTable().destroy();
-								fetch_data();
-							}
-						});
-						setInterval(function(){
-							$('#alert_message').html('');
-						}, 5000);
-
-					}
-				});
-			});
-		</script>
-
-		<script type="text/javascript">
-			$(document).ready(function() {
-				$('#formAddData').submit(function(event) {
-					event.preventDefault();
+ 		<script type="text/javascript">
+ 			$(document).ready(function() {
+ 				$('#formAddData').submit(function(event) {
+ 					event.preventDefault();
 					$('#buttonSaveData').text('creating...'); //change button text
 			    	$('#buttonSaveData').attr('disabled',true); //set button disable
 			    	var formData = new FormData($('#formAddData')[0]);
@@ -480,6 +372,7 @@
 				            $('#alert_message').html('<div class="alert alert-success">'+data+'</div>');
 				            $("#formAddData")[0].reset();
 							$('#buttonSaveData').text('Save changes'); //change button text
+							window.location.replace('./layout.php?alpro=<?php echo $_GET['alpro'];?>');
 						},
 						error: function (jqXHR, textStatus, errorThrown)
 						{
@@ -490,8 +383,8 @@
 				    });
 			    });
 
-				$('#formEditData').submit(function(event) {
-					event.preventDefault();
+ 				$('#formEditData').submit(function(event) {
+ 					event.preventDefault();
 					$('#buttonSaveEditData').text('editting...'); //change button text
 			    	$('#buttonSaveEditData').attr('disabled',true); //set button disable
 			    	var formData = new FormData($('#formEditData')[0]);
@@ -510,6 +403,7 @@
 				            // $('#btn_free').text('Submit'); //change button text
 				            $('#buttonSaveEditData').attr('disabled',false); //set button enable
 							$('#buttonSaveEditData').text('Save changes'); //change button text
+							window.location.replace('./layout.php?alpro=<?php echo $_GET['alpro'];?>');
 							$('#modalEditData').modal('hide');
 							$('#tabel-panel-digilog').DataTable().destroy();
 							fetch_data();
@@ -525,8 +419,8 @@
 				    });
 			    });
 
-				$('#formDeleteData').submit(function(event) {
-					event.preventDefault();
+ 				$('#formDeleteData').submit(function(event) {
+ 					event.preventDefault();
 					$('#buttonDeleteData').text('deleting...'); //change button text
 			    	$('#buttonDeleteData').attr('disabled',true); //set button disable
 			    	var formData = new FormData($('#formDeleteData')[0]);
@@ -540,6 +434,7 @@
 			    		{
 				            $('#buttonDeleteData').attr('disabled',false); //set button enable
 							$('#buttonDeleteData').text('Save changes'); //change button text
+							window.location.replace('./layout.php?alpro=<?php echo $_GET['alpro'];?>');
 							$('#modalDeleteData').modal('hide');
 							$('#tabel-panel-digilog').DataTable().destroy();
 							fetch_data();
@@ -554,9 +449,8 @@
 				        }
 				    });
 			    });
-			});
+ 			});
 
-		</script>
-
-	</body>
-	</html>
+ 		</script>
+ 	</body>
+ 	</html>

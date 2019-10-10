@@ -21,7 +21,7 @@
 						<button class="primary" style="color: white;" data-toggle="modal" data-target="#modalAddData">new data</button>
 						<button class="primary" onclick="window.location.href='layout.php?alpro=<?php echo $_GET['alpro'];?>'">Back</button>
 					</div>
-					<div id="alert_message" style="padding-right: 250px; padding-top: 30px; "></div>		
+					<!-- <div id="alert_message" style="padding-right: 250px; padding-top: 30px; "></div> -->		
 					<br />
 					<div style="overflow: auto;">	
 						<table style="font-size: 13px; margin-right: 300px; margin-left: 10px; margin-top: 10px; background-color: white;" id="tabel-panel-digilog" class="table table-striped table-hover">
@@ -428,5 +428,101 @@
 
 </script>
 
+<script type="text/javascript" language="javascript" >
+	function fetch_data()
+	{
+		var dataTable = $('#tabel-panel-digilog').DataTable({
+			ajax : {
+				url:"fetch.php?alpro=<?php echo $_GET['alpro'] ?>",
+				type:"POST"
 
-<?php include('foot.php'); ?>
+			},
+			columns :
+			[
+			{ data: 'id_panel'},
+			{ data: 'id_port'},
+			{ data: 'panel_in'},
+			{ data: null, render : function(data, type, row){
+				if (data.panel_out_splitter !== null) {
+					return data.panel_out_splitter
+				}else{
+					return data.panel_out_odp
+				}
+			}},
+			{ data: 'distrib'},
+			{ data: null, render : function(data, type, row){
+				if (data.id_alpro == 1) {
+					return "ODC-GSK-FAB"
+
+				}else if (data.id_alpro == 2) {
+					return "ODC-GSK-FAK"
+
+				}else if (data.id_alpro == 3) {
+					return "ODC-GSK-FB"
+
+				}else if (data.id_alpro == 4) {
+					return "ODC-GSK-FG"
+
+				}else if (data.id_alpro == 5) {
+					return "ODC-GSK-FM"
+
+				}else if (data.id_alpro == 6) {
+					return "FTM-GSK-01"
+
+				}else {
+					return 0
+				}
+
+			}},
+			{ data: null, render : function(data,type,row){
+				return "<button class='primary' onClick='editData("+data.id+")'>Edit</button>" + "<button class='danger' onClick='deleteData("+data.id+")'>Delete</button>"
+			}}
+			],
+			fixedHeader: true,
+			stateSave: true,
+			aLengthMenu: [[12, -1], [12, "All"]],
+			pagingType: 'simple_numbers',
+			ordering: true,
+			autoWidth: false,
+			oLanguage: {
+				oPaginate: {
+					sNext: '<i class="fa fa-chevron-right"></i>',
+					sPrevious: 'PANEL <i class="fa fa-chevron-left"></i>'
+				}
+			}
+		});
+	}
+
+	$(document).ready(function(){
+		fetch_data();
+				// $(document).on('blur', '.update', function(){
+				// 	var id = $(this).data("id");
+				// 	var column_name = $(this).data("column");
+				// 	var value = $(this).text();
+				// 	update_data(id, column_name, value);
+				// });
+
+				$(document).on('click', '.delete', function(){
+					var id = $(this).attr("id");
+					if(confirm("Are you sure you want to deleted this data?"))
+					{
+						$.ajax({
+							url:"delete.php",
+							method:"POST",
+							data:{id:id},
+							success:function(data){
+								$('#alert_message').html('<div class="alert alert-success">'+data+'</div>');
+								$('#tabel-panel-digilog').DataTable().destroy();
+								fetch_data();
+							}
+						});
+						setInterval(function(){
+							$('#alert_message').html('');
+						}, 5000);
+
+					}
+				});
+			});
+		</script>
+
+		<?php include('foot.php'); ?>

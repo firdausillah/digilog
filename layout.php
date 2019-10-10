@@ -8,24 +8,21 @@ if(!isset($_GET["alpro"])){
 
 <!-- Main -->
 <article id="main">
-	<header>
-		<h2>LAYOUT</h2>
-		<p>Layout Digital Data <br /> ODC & FTM</p>
-	</header>
 	<section class="wrapper style5">
 		<div class="inner">
-			<h3 style="margin-top: -20px; margin-bottom: 0px;">List Data Layout ODC</h3>
+			<h3>List Data Layout ODC</h3>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			<style>
 				img {
 					width: 33%;
 					height: auto;
-					margin-bottom: -40px;
+					margin-bottom: -10px;
 				}
 			</style>
 
-			<!-- <img src="images/teknis1.jpg" type="image/jpg" width="260" height="150" style="margin-top: 0px;"><img src="images/teknis.jpg" type="image/jpg" width="260" height="150" style="margin-top: -20px;"><img src="images/teknis3.jpg" type="image/jpg" width="260" height="150" style="margin-top: -20px;"> -->
+			<img src="images/teknis1.jpg" type="image/jpg" width="260" height="150" style="margin-top: 0px;"><img src="images/teknis.jpg" type="image/jpg" width="260" height="150" style="margin-top: -20px;"><img src="images/teknis3.jpg" type="image/jpg" width="260" height="150" style="margin-top: -20px;">
 
+			<!-- <div id="alert_message" style="padding-right: 250px; padding-top: 30px; "></div> -->
 			<hr />
 
 			<!-- <select style="background-color: #ff1c007d; margin-left: -2px; margin-bottom: 50px; margin-top: -40px; color: white;" onChange="window.location.href=this.value" type="button" class="primary">
@@ -42,7 +39,8 @@ if(!isset($_GET["alpro"])){
 			<p>Berikut layout ODC & FTM dalam bentuk list data tabel. Anda dapat melihat, menambah, mengubah, dan menghapus data layout sesuai dengan apa yang telah anda kerjakan. </br> <strong>Pastikan data selalu Update!</strong></p>
 
 			<div align="right" style="margin-right: 0px; margin-bottom: 50px; margin-top: -20px;" >
-				<button class="primary" onclick="window.location.href='edit.php?alpro=<?php echo $_GET['alpro'];?>'">Edit Data</button>
+				<button class="primary" style="color: white;" data-toggle="modal" data-target="#modalAddData">Add data</button>
+				<button class="primary" onclick="window.location.href='edit.php?alpro=<?php echo $_GET['alpro'];?>'">Cek Record Data</button>
 			</div>
 
 			<!--Tabel-->
@@ -71,7 +69,7 @@ if(!isset($_GET["alpro"])){
 							for($a = 1; $a < 26; $a++){
 								echo '<tr style="text-align: center;">';
 								echo "<td align='center' style='border-right: 0px solid white; border-bottom: 20px solid white;' id='color1'><h3 style='vertical-align: baseline; color: white;'>".$a."</h3></td>";
-								include('panelinout1.php');
+								include('panelinout.php');
 								echo '</tr>';
 								$acek++;
 							}
@@ -90,6 +88,7 @@ if(!isset($_GET["alpro"])){
 	$( document ).ready(function() {
 		$('#tabel-halaman-layout').DataTable({
 			fixedHeader: true,
+			stateSave: true
 			scrollY: 600,
 			// scrollX: true,
 			// scrollCollapse: true,
